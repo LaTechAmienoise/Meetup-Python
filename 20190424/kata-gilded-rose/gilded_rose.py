@@ -28,7 +28,7 @@ class GildedRose(object):
                     if item.name != BACKSTAGE_PASS:
                         self.decrease_quality(item)
                     else:
-                        item.quality = item.quality - item.quality
+                        item.quality = 0
                 else:
                     self.increase_quality(item)
 
