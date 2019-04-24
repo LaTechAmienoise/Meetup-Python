@@ -21,7 +21,7 @@ class GildedRose(object):
         item.sell_in -= 1
 
     def update_item_quality(self, item):
-        if item.name != AGED_BRIE and item.name != BACKSTAGE_PASS:
+        if item.name not in {AGED_BRIE, BACKSTAGE_PASS}:
             self.decrease_quality(item)
         else:
             self.increase_quality(item)
