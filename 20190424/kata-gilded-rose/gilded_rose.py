@@ -21,8 +21,7 @@ class GildedRose(object):
                         self.increase_quality(item)
                     if item.sell_in < 6:
                         self.increase_quality(item)
-            if item.name != SULFURAS:
-                item.sell_in = item.sell_in - 1
+            self.decrease_sell_in(item)
             if item.sell_in < 0:
                 if item.name != AGED_BRIE:
                     if item.name != BACKSTAGE_PASS:
@@ -31,6 +30,10 @@ class GildedRose(object):
                         item.quality = 0
                 else:
                     self.increase_quality(item)
+
+    def decrease_sell_in(self, item):
+        if item.name != SULFURAS:
+            item.sell_in = item.sell_in - 1
 
     def increase_quality(self, item):
         if item.quality < 50:
