@@ -31,13 +31,13 @@ class GildedRose(object):
                 if item.sell_in < 5:
                     self.increase_quality(item)
         if item.sell_in < 0:
-            if item.name != AGED_BRIE:
-                if item.name != BACKSTAGE_PASS:
-                    self.decrease_quality(item)
-                else:
-                    item.quality = 0
-            else:
+            if item.name == AGED_BRIE:
                 self.increase_quality(item)
+            else:
+                if item.name == BACKSTAGE_PASS:
+                    item.quality = 0
+                else:
+                    self.decrease_quality(item)
 
     def increase_quality(self, item):
         if item.quality < 50:
